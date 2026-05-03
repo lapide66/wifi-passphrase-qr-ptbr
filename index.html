@@ -115,6 +115,13 @@
       line-height: 1.45;
     }
 
+    .helper-list {
+      margin: 0 0 16px 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
     .source-note {
       margin-top: 8px;
       color: var(--text-muted);
@@ -391,7 +398,11 @@
     <div class="main-grid">
       <section class="card config-card">
         <h2 class="card-title">Como utilizar</h2>
-        <p class="helper">1. Digite o nome da rede. 2. Escolha o formato da senha. 3. Gere a senha e use o QR Code para copiar ou baixar.</p>
+        <ol class="helper-list">
+          <li>Digite o nome da rede.</li>
+          <li>Escolha o formato da senha.</li>
+          <li>Gere a senha e use o QR Code para copiar ou baixar.</li>
+        </ol>
 
         <div class="form-group">
           <label for="ssid">Nome da rede (SSID)</label>

@@ -2,3 +2,10 @@
 *.log
 .vscode/
 .idea/
+AGENTS.md
+GIT.md
+specs.md
+agent_state.json
+tasks-pending.md
+tasks-completed.md
+7776palavras_sem_acento_sem_1_2.txt
