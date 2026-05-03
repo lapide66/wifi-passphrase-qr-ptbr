@@ -456,7 +456,7 @@
         <h2 class="card-title">Resultado</h2>
         <div class="password-box">
           <label for="passwordField">Senha gerada</label>
-          <input type="text" id="passwordField" autocomplete="off" spellcheck="false">
+          <input type="text" id="passwordField" autocomplete="off" spellcheck="false" maxlength="63">
         </div>
 
         <div class="btn-row">
@@ -520,6 +520,7 @@
     const WORDS = WORDS_SOURCE.split(/\n/).map((word) => word.trim()).filter(Boolean);
     const NUMBERS = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
     const SPECIALS = ['!', '@', '#', '$', '%', '&', '*'];
+    const MAX_PASSWORD_LENGTH = 63;
     const resultSection = document.getElementById('resultSection');
     const passwordField = document.getElementById('passwordField');
     const ssidField = document.getElementById('ssid');
@@ -572,19 +573,25 @@
         throw new Error('O numero de palavras deve ficar entre 4 e 6.');
       }
 
-      const selectedWords = shuffle(WORDS).slice(0, wordCount).map((word) => capitalize ? capitalizeWord(word) : word);
-      let password = selectedWords.join('-');
+      for (let attempt = 0; attempt < 250; attempt += 1) {
+        const selectedWords = shuffle(WORDS).slice(0, wordCount).map((word) => capitalize ? capitalizeWord(word) : word);
+        let password = selectedWords.join('-');
 
-      if (addNumbers) {
-        const digits = shuffle(NUMBERS);
-        password += digits[0] + digits[1];
+        if (addNumbers) {
+          const digits = shuffle(NUMBERS);
+          password += digits[0] + digits[1];
+        }
+
+        if (addSpecial) {
+          password += shuffle(SPECIALS)[0];
+        }
+
+        if (password.length <= MAX_PASSWORD_LENGTH) {
+          return password;
+        }
       }
 
-      if (addSpecial) {
-        password += shuffle(SPECIALS)[0];
-      }
-
-      return password;
+      throw new Error('Nao foi possivel gerar uma senha com ate 63 caracteres agora.');
     }
 
     function utf8ByteString(value) {
