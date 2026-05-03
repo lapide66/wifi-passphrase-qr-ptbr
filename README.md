@@ -22,7 +22,8 @@ Na prática, isso ajuda a equilibrar segurança e uso no dia a dia:
 Cada palavra vem de uma lista com milhares de opções. Isso aumenta a entropia da senha, ou seja, a quantidade de combinações possíveis. Quanto mais palavras aleatórias, mais difícil fica prever ou forçar a combinação correta.
 
 ## Como usar
-
+Acesse https://lapide66.github.io/wifi-passphrase-qr-ptbr/ 
+- Execute localmente: 
 1. Abra o arquivo `index.html` no navegador.
 2. Digite o nome da sua rede Wi-Fi.
 3. Escolha o formato da senha.
@@ -31,7 +32,7 @@ Cada palavra vem de uma lista com milhares de opções. Isso aumenta a entropia 
 
 ## O que aparece no resultado
 
-- senha gerada na tela
+- Senha gerada na tela
 - QR Code da rede Wi-Fi
 - nome da rede
 - data de geração
