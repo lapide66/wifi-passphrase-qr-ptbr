@@ -722,22 +722,22 @@
     }
 
     function wrapText(context, text, maxWidth) {
-      const words = text.replace(/-/g, '- ').split(' ');
+      const words = text.match(/[^\s-]+-?|\s+|-/g) || [];
       const lines = [];
       let currentLine = '';
 
       for (const word of words) {
-        const candidate = currentLine ? currentLine + ' ' + word : word;
+        const candidate = currentLine + word;
         if (context.measureText(candidate).width <= maxWidth || !currentLine) {
           currentLine = candidate;
         } else {
-          lines.push(currentLine);
+          lines.push(currentLine.trimEnd());
           currentLine = word;
         }
       }
 
       if (currentLine) {
-        lines.push(currentLine);
+        lines.push(currentLine.trimEnd());
       }
 
       return lines;
