@@ -432,6 +432,7 @@
         <div class="form-group">
           <label for="wordCount">Número de palavras</label>
           <select id="wordCount">
+            <option value="3">3 palavras</option>
             <option value="4" selected>4 palavras</option>
             <option value="5">5 palavras</option>
             <option value="6">6 palavras</option>
@@ -573,8 +574,8 @@
       const addNumbers = document.getElementById('addNumbers').checked;
       const addSpecial = document.getElementById('addSpecial').checked;
 
-      if (wordCount < 4 || wordCount > 6) {
-        throw new Error('O numero de palavras deve ficar entre 4 e 6.');
+      if (wordCount < 3 || wordCount > 6) {
+        throw new Error('O numero de palavras deve ficar entre 3 e 6.');
       }
 
       for (let attempt = 0; attempt < 250; attempt += 1) {
